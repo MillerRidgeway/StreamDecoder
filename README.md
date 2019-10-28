@@ -24,13 +24,13 @@ The default behavior is to run through a handful of tests cases written in the f
 2. Create an array of type ```uint8_t``` containg the stream you would like to test.
 3. Push the array you just created onto testing vectors using the following code:
 
-  1.```packets.push_back(name_of_arr);```
+  ```packets.push_back(name_of_arr);```
   
-  2.```sizes.push_back(sizeof(name_of_arr));```
+  ```sizes.push_back(sizeof(name_of_arr));```
   
 4. After you have created your new test case, make sure you re-build the file with ```make```. To do so
-  1. ```cd bin```
+   ```cd bin```
   
-  2. ```make```
+   ```make```
   
-  3. ```./StreamDecoder```
+   ```./StreamDecoder```
