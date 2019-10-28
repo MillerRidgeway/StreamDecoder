@@ -29,6 +29,7 @@ The default behavior is to run through a handful of tests cases written in the f
 ```sizes.push_back(sizeof(name_of_arr));```
   
 4. After you have created your new test case, make sure you re-build the file with ```make```. To do so:
+
 ```cd bin```
   
 ```make```
