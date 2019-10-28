@@ -18,6 +18,7 @@ struct pkt_decoder {
     bool isComplete = false;
     bool escapeFlag = false;
     bool validStart = false;
+    size_t totalLen = 0;
 
     ~pkt_decoder() {}
 };
@@ -36,7 +37,8 @@ void pkt_decoder_destroy(pkt_decoder_t *decoder) {
 
 void pkt_decoder_write_bytes(pkt_decoder_t *decoder, size_t len, const uint8_t *data) {
     //Prelim checks (length, nulls, etc.)
-    if (len > MAX_DECODED_PACKET_LEN) {
+    decoder->totalLen += len;
+    if (decoder->totalLen > MAX_DECODED_PACKET_LEN) {
         cout << "ERROR: Packet length exceeded max value - " << MAX_DECODED_PACKET_LEN;
         return;
     }
@@ -49,7 +51,7 @@ void pkt_decoder_write_bytes(pkt_decoder_t *decoder, size_t len, const uint8_t *
     }
 
     //Everything OK. Decode the stream.
-
+    decoder->immutableDataCopy.clear();
     for (int i = 0; i < len; i++) {
         decoder->immutableDataCopy.push_back(data[i]);
 
@@ -76,6 +78,7 @@ void pkt_decoder_write_bytes(pkt_decoder_t *decoder, size_t len, const uint8_t *
             decoder->parsedStream.clear();
             decoder->isComplete = false;
             decoder->validStart = false;
+            decoder->totalLen = 0;
         }
     }
 
