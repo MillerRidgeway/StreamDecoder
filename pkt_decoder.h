@@ -5,6 +5,7 @@
 #define STREAMDECODER_PKT_DECODER_H
 
 #include <cstdint>
+#include <cstddef>
 
 #ifdef __cplusplus
 extern "C" {
