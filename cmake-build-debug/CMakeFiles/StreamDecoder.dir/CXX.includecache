@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Miller Ridgeway/CLionProjects/StreamDecoder/main.cpp
+pkt_decoder.h
+C:/Users/Miller Ridgeway/CLionProjects/StreamDecoder/pkt_decoder.h
+stdio.h
+-
+
+C:/Users/Miller Ridgeway/CLionProjects/StreamDecoder/pkt_decoder.cpp
+pkt_decoder.h
+C:/Users/Miller Ridgeway/CLionProjects/StreamDecoder/pkt_decoder.h
+string
+-
+iostream
+-
+vector
+-
+numeric
+-
+
+C:/Users/Miller Ridgeway/CLionProjects/StreamDecoder/pkt_decoder.h
+cstdint
+-
+
