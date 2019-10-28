@@ -17,7 +17,6 @@ int main() {
     pkt_decoder_t *decoder = pkt_decoder_create(pkt_printer, nullptr);
     pkt_decoder_write_bytes(decoder, sizeof(pkt1), pkt1);
     pkt_decoder_write_bytes(decoder, sizeof(pkt2), pkt2);
-    //pkt_decoder_write_bytes(decoder, sizeof(pkt3), pkt3);
     pkt_decoder_destroy(decoder);
     pkt_decoder_write_bytes(decoder, sizeof(pkt3), pkt3);
     return 0;

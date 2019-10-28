@@ -13,6 +13,8 @@ using namespace std;
 struct pkt_decoder {
     pkt_read_fn_t callbackFunction;
     void *callbackContext;
+
+    ~pkt_decoder() {}
 };
 
 pkt_decoder_t *pkt_decoder_create(pkt_read_fn_t callback, void *callback_ctx) {
@@ -29,8 +31,8 @@ void pkt_decoder_destroy(pkt_decoder_t *decoder) {
 
 void pkt_decoder_write_bytes(pkt_decoder_t *decoder, size_t len, const uint8_t *data) {
     //Prelim checks (length, nulls, etc.)
-    if (len > 512) {
-        cout << "ERROR: Packet length exceeded max value (512)";
+    if (len > MAX_DECODED_PACKET_LEN) {
+        cout << "ERROR: Packet length exceeded max value - " << MAX_DECODED_PACKET_LEN;
         return;
     }
     if (decoder == nullptr) {
@@ -42,7 +44,7 @@ void pkt_decoder_write_bytes(pkt_decoder_t *decoder, size_t len, const uint8_t *
     }
 
     //Everything OK. Decode the stream.
-    vector<uint8_t> immutableDataCopy, parsedStream;
+    vector <uint8_t> immutableDataCopy, parsedStream;
     bool isComplete = false;
     bool escapeFlag = false;
     bool validStart = false;
