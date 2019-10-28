@@ -6,10 +6,16 @@
 
 #IncludeRegexTransform: 
 
-/home/millerridgeway/Projects/StreamDecoder/main.cpp
+/home/millerridgeway/Projects/StreamDecoder/pkt_decoder.cpp
 pkt_decoder.h
 /home/millerridgeway/Projects/StreamDecoder/pkt_decoder.h
-stdio.h
+string
+-
+iostream
+-
+vector
+-
+numeric
 -
 
 /home/millerridgeway/Projects/StreamDecoder/pkt_decoder.h
